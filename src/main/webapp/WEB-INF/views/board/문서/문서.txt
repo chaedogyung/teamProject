@@ -1,0 +1,59 @@
+
+WebContent
+ boardmysql
+ 
+mysql 접속
+ 
+use ch20;
+
+drop table board;
+
+create table board(
+num int not null primary key auto_increment,
+writer varchar(30) not null,
+subject varchar(50) not null,
+pw varchar(16) not null,
+regdate datetime,
+readcount int default 0,
+ref int not null,
+re_step int(4) not null,
+re_level int(4) not null,
+content text not null,
+ip varchar(30)
+);
+    
+create table board(
+num int not null primary key auto_increment,---글번호
+writer varchar(30) not null,  --글쓴이
+subject varchar(50) not null, --글제목
+pw varchar(16) not null,      --글제목
+regdate datetime,             --등록일
+readcount int default 0,      --조회수
+ref int not null,             --답글그룹
+re_step int(4) not null,      --//글 순서(원글, 답글 순서처리)
+re_level int(4) not null,     --답글 깊이(들여쓰기)
+content text not null,        --글내용
+ip varchar(30)
+-----------------------
+★커넥션풀
+
+META-INF/context.xml 커넥션풀
+WEB-INF /web.xml
+------------------------------
+프로젝트명 : 07_mem_board 그대로 사용
+src/boardmysql.BoardDTO.java (자바빈)
+src/boardmysql.BoardDAO.java (DAO,DB처리)
+
+-------------------------
+WebContent/boardmysql
+writeForm.jsp
+writePro.jsp
+list.jsp
+
+content.jsp
+
+updateForm.jsp
+update.jsp
+
+deleteForm.jsp
+deletePro.jsp

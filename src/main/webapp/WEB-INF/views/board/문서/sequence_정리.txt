@@ -1,0 +1,60 @@
+
+정의된 시퀀스 조회
+select * from user_sequences;
+
+
+현재 시퀀스 조회
+select 시퀀스네임.currval from dual
+
+
+다음 시퀀스 조회
+select 시퀀스네임.nextval from dual
+
+
+[Sequence 생성]
+CREATE SEQUENCE sequence_name
+        [INCREMENT BY n1]
+        [START WITH n2]
+        [MAXVALUE n3 or NOMAXVALUE]
+        [MINVALUE n4 or NOMINVALUE]
+        [CYCLE or NOCYCLE]
+        [CACHE or NOCACHE];
+
+
+sequence_name ....... 생성하고자 하는 시퀀스 명
+INCREMENT BY n1 ... 해당 시퀀스의 증가값을 지정한다. 생략하면 1로 지정됨.
+
+
+                                오름차순 : 양의 정수, 내림차순 : 음의정수 사용
+
+START WITH n2 ........ 해당 시쿼스가 처음 시작하는 값을 지정한다. 생략하면 1로 지정됨.
+
+MAXVALUE n3 ......... 해당 시퀀스가 생성할 수 있는 최대값,
+NOMAXVALUE ......... 오름차순 최대 10의 27승 까지, 내림차순 -1 까지 생성됨.
+
+MINVALUE n4 .......... 해당 시퀀스가 생성할 수 있는 최소값
+NOMINVALUE .......... 오름차순 1 까지, 내림차순 -10의 26승 까지
+
+CYCLE ................... 해당 시퀀스가 최대값에 도달한 후 다시 처음부터 시퀀스를 생성한다.
+NOCYCLE ............... 해당 시퀀스가 최대값에 도달해도 다시 생성하지 않는다.[DEFAULT]
+CACHE ................... 시퀀스 값을 메모리에 할당하여 처리한다. [ORACLE DEFAULT 20]
+NOCACHE ............... 시퀀스를 메모리에 할당하여 사용하지 않음.
+  
+
+
+
+
+예1) CREATE SEQUENCE temp_seq
+            INCREMENT BY 2
+            START WITH   1
+            MAXVALUE 100
+            NOCYCLE
+            NOCACHE;
+
+
+temp_seq하는 시퀀스를 생성한다.
+초기값은 1부터 시작하며 2씩 증가하고 100이 되거나 100에 가장 근접한 값을 가지게 되면
+ 종료된다.(NOCYCLE 지정에 의해)
+NOCHCHE지정으로 메모리에 CACHE하지는 않는다.
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd" >
+
+<configuration>
+
+<typeAliases><!-- 별칭주는것 -->
+<typeAlias alias="faq77" type="model.faq.FaqDto"/>
+<typeAlias alias="travel77" type="model.travel.TravelDto"/>
+<typeAlias type="model.member.MemberDto" alias="member77"/>
+<typeAlias type="model.board.BoardDto" alias="board77"/>
+<typeAlias type="model.notice.NoticeDto" alias="mnN"/>
+</typeAliases>
+
+<mappers>
+<mapper resource="/mybatis/faq.xml"/>
+<mapper resource="/mybatis/travel.xml"/>
+<mapper resource="/mybatis/notice.xml"/>
+<mapper resource="/mybatis/board.xml"/>
+<mapper resource="/mybatis/member.xml"/>
+</mappers>
+</configuration>
